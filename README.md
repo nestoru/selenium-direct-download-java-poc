@@ -1,3 +1,5 @@
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=58F9TDDRBND4L)
+
 # Selenium Direct Downloads - A Java POC
 To download directly from selenium webdriver you have to inject a link in the DOM, otherwise the driver will hang forever.
 
