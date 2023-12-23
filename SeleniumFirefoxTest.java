@@ -39,6 +39,13 @@ public class SeleniumFirefoxTest {
             System.exit(1);
         }
 
+        // Check for mandatory --download-dir argument
+        String downloadDir = arguments.get("--download-dir");
+        if (downloadDir == null || downloadDir.isEmpty()) {
+            System.out.println("Error: The --download-dir argument is mandatory.");
+            System.exit(1);
+        }
+
         // Check for optional --headless flag
         boolean isHeadless = arguments.containsKey("--headless");
 
@@ -49,7 +56,7 @@ public class SeleniumFirefoxTest {
         FirefoxProfile profile = new FirefoxProfile();
         profile.setPreference("browser.download.folderList", 2);
         profile.setPreference("browser.download.manager.showWhenStarting", false);
-        profile.setPreference("browser.download.dir", "/path/to/download");
+        profile.setPreference("browser.download.dir", downloadDir);
         profile.setPreference("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream"); // MIME type of your file
 
         FirefoxOptions options = new FirefoxOptions();
