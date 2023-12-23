@@ -7,6 +7,9 @@ To download directly from selenium webdriver you have to inject a link in the DO
 - Download the Selemium webdriver jars https://www.selenium.dev/downloads/
 - Download the Firefox gecko driver https://github.com/mozilla/geckodriver/releases
 - Checkout this project
+  ```
+  git clone https://github.com/nestoru/selenium-direct-download-java-poc.git
+  ```
 - Add to the root folder the downloaded uncompressed jars folder and the geckodriver executable
 
 ## Compile
