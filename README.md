@@ -16,7 +16,7 @@ To download directly from selenium webdriver you have to inject a link in the DO
 
 ## Compile
 ```
-javac -cp '.:../app-dependencies/*:../app-dependencies/lib/*' SeleniumFirefoxTest.java
+javac -encoding UTF-8 -cp '.:../app-dependencies/*:../app-dependencies/lib/*' SeleniumFirefoxTest.java
 ```
 
 ## Run
