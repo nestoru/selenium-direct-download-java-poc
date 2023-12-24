@@ -3,7 +3,7 @@
 # Selenium Direct Downloads - A Java POC
 To download directly from selenium webdriver you have to inject a link in the DOM, otherwise the driver will hang forever.
 
-## Manual Ssetup
+## Manual Setup
 - Download the Selemium webdriver jars https://www.selenium.dev/downloads/
 - Download the Firefox gecko driver https://github.com/mozilla/geckodriver/releases
 - Create a directory where you will checkout the code from this repository
@@ -27,7 +27,7 @@ java -cp '.:../app-dependencies/*:../app-dependencies/lib/*' SeleniumFirefoxTest
 ## Docker Setup
 
 ```
-mkdir ~/workspace/selenium-poc
+mkdir -p ~/workspace/selenium-poc
 cd ~/workspace/selenium-poc
 git clone https://github.com/nestoru/selenium-direct-download-java-poc.git
 cd selenium-direct-download-java-poc/
