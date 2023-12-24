@@ -3,7 +3,7 @@
 # Selenium Direct Downloads - A Java POC
 To download directly from selenium webdriver you have to inject a link in the DOM, otherwise the driver will hang forever.
 
-## Manual Setup
+## OSX Manual Setup
 - Download the Selemium webdriver jars https://www.selenium.dev/downloads/
 - Download the Firefox gecko driver https://github.com/mozilla/geckodriver/releases
 - Create a directory where you will checkout the code from this repository
@@ -37,4 +37,31 @@ docker run -d -v $(pwd):/usr/src/app --name selenium-firefox selenium-firefox ta
 docker exec -it selenium-firefox /bin/bash
 # Compile (javac)
 # Run (java) using --download-dir "/usr/src/app/downloads" so that you get the downloaded file in your original local directory
+```
+
+## Ubuntu 22.04 Setup
+```
+apt install -y default-jdk maven
+update-java-alternatives -l 
+update-java-alternatives -s java-1.11.0-openjdk-amd64
+java -version
+mkdir -p ~/workspace/selenium-poc
+cd ~/workspace/selenium-poc
+git clone https://github.com/nestoru/selenium-direct-download-java-poc.git
+mkdir -p app-dependencies
+tar -xzf  geckodriver-v0.31.0-linux64.tar.gz -C  app-dependencies/
+curl -LO "https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-linux64.tar.gz"
+tar -xzf  geckodriver-v0.31.0-linux64.tar.gz -C  app-dependencies/
+curl -LO "https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.16.0/selenium-java-4.16.1.zip"
+unzip selenium-java-4.16.1.zip -d app-dependencies/
+apt install -y software-properties-common
+add-apt-repository ppa:mozillateam/ppa
+apt-get update -y
+apt remove --autoremove firefox-esr -y
+apt remove --autoremove firefox -y
+apt install -y firefox-esr
+ln -s /usr/bin/firefox-esr /usr/bin/firefox
+firefox --version
+javac -encoding UTF-8  -cp '.:../app-dependencies/*:../app-dependencies/lib/*' 
+java -cp '.:../app-dependencies/*:../app-dependencies/lib/*' SeleniumFirefoxTest --gecko-driver-path '../app-dependencies/geckodriver' --download-url "https://your-url" --download-dir "/tmp" --headless
 ```
